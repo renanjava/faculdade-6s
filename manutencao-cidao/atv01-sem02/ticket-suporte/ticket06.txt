@@ -1,0 +1,18 @@
+Ticket 6: Falha no Carregamento de Imagens no Front-end
+- Descrição: 
+    As imagens dos produtos não estão sendo exibidas na página inicial para alguns
+    usuários. Em outros casos, as imagens aparecem com atraso.
+- Possível Causa: 
+    Alto acoplamento entre o back-end e o serviço de carregamento de imagens,
+    sem um sistema de cache eficiente.
+- Tarefa: 
+    Identificar como o acoplamento entre o serviço de imagens e o back-end está
+    causando o problema e propor uma solução para otimizar o carregamento.
+
+- Resposta:
+    Identificar o problema pela comunicação entre o cache e as consultas,
+    onde o tempo de cache está muito alto e há inconsistências entre
+    os dados do cache e do banco de dados. O ideal seria monitorar o tempo 
+    de cacheamento e analisar qual o melhor tempo para aplicar no TTL (Time-
+    to-live) e verificar se o back-end não está buscando no cache mesmo
+    após o TTL.

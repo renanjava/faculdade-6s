@@ -1,0 +1,17 @@
+Ticket 5: Logout Automático Inesperado
+- Descrição: 
+    Os usuários estão sendo desconectados automaticamente do sistema após alguns
+    minutos de inatividade, mesmo que ainda estejam navegando.
+- Possível Causa: 
+    Problema de gerenciamento de sessão, onde o sistema não está
+    monitorando corretamente a atividade do usuário.
+- Tarefa: 
+    Investigar como o gerenciamento de sessão está sendo controlado e sugerir
+    melhorias na modularidade e manuseio das sessões.
+
+- Resposta:
+    A minha tarefa será investigar a falta de detecção de atividade de usuário
+    que faz o token jwt expirar mesmo o usuário navegando pelo site, ou seja,
+    possivelmente o token não está sendo renovado. Outro ponto é analisar 
+    se o tempo de expiração de token está muito curto fazendo que o token 
+    expira antes de renovar.

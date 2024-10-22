@@ -1,0 +1,23 @@
+Ticket 4: Erro ao Atualizar Perfil do Usuário
+- Descrição: 
+    Os usuários não conseguem alterar as informações do perfil. Após a tentativa de
+    atualização, uma mensagem de erro genérica aparece: "Erro ao salvar as alterações".
+- Possível Causa: 
+    O sistema está tentando acessar diretamente várias camadas de objetos
+    (violação da Lei de Demeter), resultando em inconsistências.
+- Tarefa: 
+    Identificar como a violação da Lei de Demeter está impactando essa operação e
+    sugerir uma solução para refatorar o código.
+
+- Resposta:
+    a violação da lei de demeter pode não fazer falta na hora de adicionar, compilar
+    e commitar uma nova feature, porém, caso tenha alterações na classe, há uma
+    grande chance de todas as partes que há essa violação receber falhas inesperadas.
+    Para solucionar esse problema, adicionaremos métodos onde ele só interage
+    com atributos e métodos que estão no escopo da sua classe, ou seja, nada
+    externo, e nesse método podemos implementar a lógica para realizar a ação. 
+    Com a Lei de Demeter, todas as vezes que houver manutenções envolvendo
+    a implementação da lógica refatorada, não iremos ter que mexer em todas
+    as ocorrências que tiverem chamando essa lógica, pois agora não estamos
+    chamando uma camada de objetos, estamos chamando um método que faz isso 
+    pra gente.

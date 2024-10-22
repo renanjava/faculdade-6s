@@ -10,4 +10,13 @@ Ticket 3: Relatórios Demoram para Carregar
     causando esse problema e sugerir estratégias para reduzir esse impacto.
 
 - Resposta:
-    
+    o grande problema está sendo nas consultas ao banco de dados e a lógica usada
+    para renderizar os relatórios. Se as buscas são feitas com frequência e por
+    usuários diferentes, eu sugiro implementar um cacheamento para armanzenar
+    o retorno das consultas na memória do computador para não precisar ter que 
+    consultar o banco de dados toda hora. Fora isso, é necessário otimizar as buscas,
+    os dados retornados devem ser de interesse da consulta, não pode ter dados
+    que não serão utilizados. E ao renderizar os relatórios, ao invés de aguardar 
+    todos os relatórios serem renderizados para mostrar para o cliente, eu sugiro
+    implementar uma paginação no front-end pois será mostrado uma certa quantidade
+    por página ao invés de aparecer todos os relatórios de uma vez
