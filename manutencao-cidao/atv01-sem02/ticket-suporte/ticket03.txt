@@ -1,0 +1,13 @@
+Ticket 3: Relatórios Demoram para Carregar
+- Descrição: 
+    Ao tentar gerar relatórios de vendas mensais, os usuários relatam que o sistema
+    demora muito tempo para exibir os resultados.
+- Possível Causa: 
+    Alto acoplamento entre a geração de relatórios e a classe de banco de dados,
+    sem otimização de consultas.
+- Tarefa: 
+    Identificar como o acoplamento entre o relatório e o banco de dados pode estar
+    causando esse problema e sugerir estratégias para reduzir esse impacto.
+
+- Resposta:
+    

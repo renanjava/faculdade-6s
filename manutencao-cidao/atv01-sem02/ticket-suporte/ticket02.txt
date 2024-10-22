@@ -1,0 +1,21 @@
+Ticket 2: Falha Intermitente na Autenticação
+- Descrição: 
+    Alguns usuários estão enfrentando problemas intermitentes ao tentar fazer login.
+    Eles relatam que, após inserir as credenciais, o sistema simplesmente recarrega a página.
+- Possível Causa: 
+    O sistema de autenticação está diretamente ligado ao serviço de banco de
+    dados sem tratamento de erro apropriado, o que pode resultar em falhas quando o serviço
+    de autenticação fica indisponível.
+- Tarefa: 
+    Identificar possíveis pontos de falha no processo de login e sugerir melhorias no
+    manuseio de erros e no desacoplamento do serviço de autenticação.
+
+Resposta:
+    a solução pode ser feita através da lei de demeter, iremos parar de acessar um objeto
+    dentro do outro e substituir por métodos, esses métodos não podem ter atributos de 
+    classes que ela não conhece a implementação, ou seja, ela não vai "conversar com estranhos"
+    agora em todas partes do codigo onde acessava vários objetos dentro do outro através de
+    notação de ponto será o mesmo método, dai é só atualizar o método que em todas as partes
+    irão ser atualizadas, dessa forma iremos reduzir o acoplamento e facilitará na manutenção.
+    sobre os erros, é sempre interessante adicionar blocos de try-catch para evitar que o serviço
+    caia.

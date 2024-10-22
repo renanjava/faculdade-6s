@@ -1,0 +1,22 @@
+Ticket 1: Falha ao Processar Pagamento
+- Descrição:
+    Os clientes estão relatando que, ao tentar realizar pagamentos, o sistema trava e
+    retorna uma mensagem de erro: "Pagamento não processado. Tente novamente mais tarde".
+- Possível Causa: 
+    A classe CarrinhoDeCompras está diretamente acoplada à classe
+    Pagamento, resultando em falhas quando o método de pagamento é atualizado sem que o
+    carrinho seja atualizado.
+- Tarefa: 
+    Identificar o impacto do alto acoplamento entre as classes e sugerir como isso
+    poderia ser solucionado (como por meio de interfaces de pagamento).
+
+Resposta: 
+    a solução para reduzir o acoplamento entre CarrinhoDeCompras e Pagamento é através
+    de uma interface, consiste no seguinte, criaremos uma interface que contém apenas a 
+    assinatura do método de efetuar pagamento com os parâmetros (se tiver) e o retorno esperado
+    após isso, na classe Pagamentos iremos estender a IPagamento (interface que criamos)
+    e ela vai obrigar-nos a implementar o método. Nó módulo onde iremos processar o pagamento
+    com o carrinho, instancia-se a classe Pagamento e passa como parâmetro na hora de
+    efetuar o pagamento, porém dentro do carrinho, o parâmetro será a interface, portanto
+    o CarrinhoDeCompras não irá depender diretamente da implementação de Pagamento, podemos
+    criar outro tipo de pagamento que também implementa a interface e passar como parâmetro.
