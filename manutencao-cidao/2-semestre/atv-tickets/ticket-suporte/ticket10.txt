@@ -1,0 +1,15 @@
+Ticket 10: Falha ao Alterar Status de Pedido
+- Descrição: 
+    O suporte relata que, ao tentar alterar o status de um pedido para "Enviado", o
+    sistema não salva a alteração e retorna uma mensagem de erro: "Erro ao atualizar status".
+- Possível Causa: 
+    O sistema está acessando diretamente várias tabelas e objetos relacionados
+    sem seguir a Lei de Demeter, o que causa inconsistências.
+- Tarefa: 
+    Identificar como a violação da Lei de Demeter pode estar causando o problema e
+    sugerir uma solução para refatorar a lógica
+
+- Resposta:
+    a violação acontece pelo fato de que estou acessando uma camada de objetos
+    isso resulta em inconsistências por que numa manipulação direta os objetos
+    acessados pode não ter os valores e nem os comportamentos que esperamos

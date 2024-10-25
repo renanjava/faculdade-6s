@@ -1,0 +1,15 @@
+Ticket 8: Falha no Envio de Notificações
+- Descrição: 
+    As notificações de e-mail não estão sendo enviadas corretamente após certas
+    ações do usuário, como a recuperação de senha.
+- Possível Causa: 
+    A classe de envio de e-mails está diretamente acoplada à lógica de negócios,
+    dificultando a manutenção e causando falhas.
+- Tarefa: 
+    Identificar como o acoplamento excessivo está impactando o envio de e-mails e
+    sugerir uma solução, como introduzir uma camada intermediária
+
+- Resposta:
+    O envio de email está fortemente acoplado a classe principal, sistema.
+    para resolver o problema eu aplico uma modularização criando uma classe de notificação
+    e injetando a dependencia na classe sistema. A classe intermediária é a Notificação

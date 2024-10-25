@@ -1,0 +1,15 @@
+Ticket 9: Excesso de Dados ao Consultar Histórico de Compras
+- Descrição: 
+    Os usuários relatam que, ao consultar o histórico de compras, o sistema retorna
+    uma quantidade excessiva de informações irrelevantes, tornando a navegação lenta.
+- Possível Causa: 
+    A consulta ao banco de dados não está bem otimizada e há um acoplamento
+    forte entre a interface do usuário e o modelo de dados.
+- Tarefa: 
+    Identificar os problemas de design na consulta e sugerir uma refatoração para
+    melhorar a performance e modularidade
+
+- Resposta:
+    A consulta está sendo feita sem a aplicação de um filtro de busca como WHERE.
+    Após aplicar a consulta otimizada, caso tenha muitos dados seria interessante
+    aplicar um lazy loading ou paginação para tornar a navegação mais rápida

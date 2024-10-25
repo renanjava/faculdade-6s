@@ -1,0 +1,19 @@
+Ticket 7: Falha ao Adicionar Produto no Carrinho
+- Descrição: 
+    Usuários relatam que, ao tentar adicionar produtos no carrinho, o sistema não
+    responde ou retorna uma mensagem de erro.
+- Possível Causa: 
+    Acoplamento direto entre o front-end e a lógica do carrinho, resultando em
+    falhas quando o sistema do carrinho é atualizado.
+- Tarefa: 
+    Avaliar como a falta de separação entre o front-end e a lógica do carrinho está
+    causando esse problema e sugerir melhorias.
+
+- Resposta:
+    A solução seria colocar um intermediador entre o Carrinho e o front para que
+    ao alterar o carrinho os métodos não entre em contato direto com o frontend
+    a ideia é que um observador fica esperando atualizações no carrinho e notifica
+    o frontend sobre essas atualizações, normalmente é feito pelo useState()
+    além de reduzir o acoplamento, o carrinho pode ser reutilizado em outros
+    frontends já que ele não implementa mais um método de um frontend fixo, ele
+    se torna flexível
