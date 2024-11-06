@@ -1,1 +1,7 @@
-ainda nao coloquei
+- Diferenças
+
+Persistência de mensagens
+    No kafka, o broker tem a capacidade de armazenar as mensagens.
+    No RabbitMQ o armazenamento é opcional.
+    Já o BullMQ depende do Redis para o armazenamento das mensagens.
+
